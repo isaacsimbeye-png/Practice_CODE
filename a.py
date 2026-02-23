@@ -66,10 +66,29 @@ class Library:
         self.users[user.user_id] = user
         print(f"User '{user.name}' added with ID {user.user_id}.")
     
-    def number(self):
-            for k,i in self.users.items():
-             print(i)
+    def list_users(self):
+        if not self.users:
+            print("No users registered")
+            return
+        for user_id,user in self.users.items():
+            print(user)
 
+    def update_user(self,user_id, name =None, email =None):
+        if user_id not in self.users:
+            print("User not found")
+            return
+        if name:
+            self.users[user_id].name = name
+        if email:
+            self.users[user_id].email = email
+        print(f"User '{user_id}' updated. ")
+
+    def delete_user(self,user_id):
+        if user_id in self.users:
+            del self.users[user_id]
+            print(f"User {user_id} deleted. ")
+        else:
+            print("User not found. ")
 
 library = Library()
 
@@ -98,9 +117,23 @@ library.return_book("1593")
 
 print()
 
-library.add_users(User("11", "John Silu","Johnzulu@outlook.com"))
-library.add_users(User("12","Gilbert","Gilbert@gmail.com"))
-library.add_users(User("13","Josias Sakala","Josias@icloud.com"))
+library.add_users(User("11", "John Chinena","John@outlook.com"))
+library.add_users(User("12","Thee Developer","Gilbert@gmail.com"))
+library.add_users(User("13","Big bro","Josias@icloud.com"))
 
 print()
-library.number()
+
+library.update_user("11",name="Jacob", email ="update@example.com")
+library.update_user("12",email="Eagleone@gmail.com")
+
+
+print()
+library.list_users()
+
+print()
+library.delete_user("13")
+library.delete_user("13")
+
+print()
+library.list_users()
+
