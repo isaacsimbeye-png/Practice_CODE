@@ -17,7 +17,7 @@ book2 =Book("Automate the boring stuff with python","AI sweigart","1593278")
 book3 =Book("The pragmatic programmer","Joshua Bloch","1593374")
 
 class User:
-    def __init__(self,name,email,user_id):
+    def __init__(self,user_id,name,email):
         self.name = name
         self.email = email
         self.user_id = user_id
@@ -65,6 +65,12 @@ class Library:
             return
         self.users[user.user_id] = user
         print(f"User '{user.name}' added with ID {user.user_id}.")
+    
+    def number(self):
+            for k,i in self.users.items():
+             print(i)
+
+
 library = Library()
 
 
@@ -82,6 +88,7 @@ library.borrow_book("1593374")
 library.borrow_book("1593279")
 library.borrow_book("1593")
 
+print()
 
 library.return_book("1593279")
 library.return_book("1593278")
@@ -89,7 +96,11 @@ library.return_book("1593374")
 library.return_book("1593279")
 library.return_book("1593")
 
-library.add_users(User("John Zulu","Johnzulu@outlook.com","01"))
-library.add_users(User("Gilbert Mbala","Gilbert@gmail.com" "22"))
-library.add_users(User("Josias Sakala","Josias@icloud.com","24"))
+print()
 
+library.add_users(User("11", "John Silu","Johnzulu@outlook.com"))
+library.add_users(User("12","Gilbert","Gilbert@gmail.com"))
+library.add_users(User("13","Josias Sakala","Josias@icloud.com"))
+
+print()
+library.number()
